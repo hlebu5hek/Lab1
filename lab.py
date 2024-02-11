@@ -37,6 +37,12 @@ elif choice in ['2', 'two', 'file', 'из файла']:
     file_name = input('Имя файла:\n')
     gived_num = ''
 
+    try:
+        open(file_name, 'r')
+    except:
+        print('Файл отсутствует в директории проекта')
+        exit()
+
     with open(file_name, 'r') as file:
         while gived_num != '000':
             gived_num = ''
