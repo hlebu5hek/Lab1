@@ -4,6 +4,23 @@
 Список используемых цифр (прописью) и их количество выводится отдельно.
 '''
 
+def check_num(gived_num, k):
+
+    if not gived_num.isdigit():
+        return False
+
+    if int(gived_num) % 2 == 0 :
+        return False
+
+    if(len(gived_num) % 2 != 0):
+        return False
+
+    if(len(gived_num) < k):
+        return False
+
+    return True
+
+
 dc_cifr = {'0': 'ноль', '1': 'один', '2': 'два', '3': 'три', '4': 'четыре', '5': 'пять', '6': 'шесть', '7': 'семь', '8': 'восемь', '9': 'девять'}
 output_arr = []
 
@@ -20,17 +37,7 @@ if choice in ['1', 'one', 'hand', 'вручную']:
         if gived_num in ['0', 'exit', 'stop', 'cancel', 'out']:
             break
 
-        num = 0
-
-        try:
-            num = int(gived_num)
-        except:
-            print('Неверно заданно натуральное число.')
-            continue
-
-        n = len(gived_num)
-
-        if (n > k) and (n % 2 == 0) and (num % 2 != 0):
+        if check_num(gived_num, k):
             output_arr.append(gived_num)
 
 elif choice in ['2', 'two', 'file', 'из файла']:
@@ -49,17 +56,10 @@ elif choice in ['2', 'two', 'file', 'из файла']:
                 #print('Файл закончился')
                 break
 
-            num = 0
-
-            try:
-                num = int(gived_num)
-            except:
-                continue
-
-            n = len(gived_num)
-
-            if (n > k) and (n % 2 == 0) and (num % 2 != 0):
+            if check_num(gived_num, k):
                 output_arr.append(gived_num)
+
+
 
 for output_num in output_arr:
     print(output_num)
