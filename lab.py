@@ -4,6 +4,7 @@
 Список используемых цифр (прописью) и их количество выводится отдельно.
 '''
 
+#Проверка числа по условию задачи
 def check_num(gived_num, k):
 
     if not gived_num.isdigit():
@@ -20,16 +21,22 @@ def check_num(gived_num, k):
 
     return True
 
-
+#Словарь с цифрами
 dc_cifr = {'0': 'ноль', '1': 'один', '2': 'два', '3': 'три', '4': 'четыре', '5': 'пять', '6': 'шесть', '7': 'семь', '8': 'восемь', '9': 'девять'}
+
+#Лист для вывода
 output_arr = []
 
+#Число К
 k = int(input('Число К: \n'))
 
+#Баффер
 gived_num = '1'
 
+#Выбор способа ввода числа
 choice = input('Как вводятся лексемы:\n1) Вручную; \n2) Из файла; \n').lower()
 
+#Ввод с клавиатуры
 if choice in ['1', 'one', 'hand', 'вручную']:
     while gived_num:
         gived_num = input('Число из потока: \n')
@@ -40,6 +47,7 @@ if choice in ['1', 'one', 'hand', 'вручную']:
         if check_num(gived_num, k):
             output_arr.append(gived_num)
 
+#Ввод из файла
 elif choice in ['2', 'two', 'file', 'из файла']:
     file_name = input('Имя файла:\n')
 
@@ -60,7 +68,7 @@ elif choice in ['2', 'two', 'file', 'из файла']:
                 output_arr.append(gived_num)
 
 
-
+#Вывод подходящих чисел
 for output_num in output_arr:
     print(output_num)
 
