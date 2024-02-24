@@ -5,7 +5,9 @@
 '''
 #Проверка числа по условию задачи
 def check_num(gived_num, k):
-    if gived_num.isdigit() and (int(gived_num) % 2 != 0)and(len(gived_num) % 2 == 0)and(len(gived_num) > k):
+    if gived_num.isdigit():
+        return False
+    if (int(gived_num) % 2 != 0)and(len(gived_num) % 2 == 0)and(len(gived_num) > k):
         return True
     return False
 
