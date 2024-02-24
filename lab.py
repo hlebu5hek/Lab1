@@ -18,7 +18,7 @@ k = int(input('Число К: \n'))
 #Баффер
 gived_num = '1'
 #Выбор файла
-file_name = input('Имя файла:\n')
+file_name = "text.txt"
 
 try:
     open(file_name, 'r')
